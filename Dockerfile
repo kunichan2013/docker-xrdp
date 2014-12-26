@@ -9,6 +9,7 @@
 # Pull base image.
 FROM ubuntu:latest
 
+ENV DEBIAN_FRONTEND noninteractive
 # RUN rm -fr /tmp/.X1-lock /tmp/.X11-unix
 
 # Install packages
