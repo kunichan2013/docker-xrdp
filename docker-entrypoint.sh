@@ -2,7 +2,7 @@
 
 if [ -z "$VNC_PASSWORD" ]; then
   echo >&2 'error: VNC_PASSWORD not set'
-  echo >&2 '  Diy you forget to add -e VNC_PASSWORD=...?'
+  echo >&2 '  Did you forget to add -e VNC_PASSWORD=...?'
   exit 1
 fi
 
