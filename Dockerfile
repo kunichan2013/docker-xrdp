@@ -10,7 +10,7 @@
 FROM ubuntu:latest
 
 ENV DEBIAN_FRONTEND noninteractive
-# http_proxy http://your proxy server:port/
+# ENV http_proxy http://proxyserver:port/
 # RUN rm -fr /tmp/.X1-lock /tmp/.X11-unix
 
 # Install packages
