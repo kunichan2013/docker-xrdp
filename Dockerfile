@@ -26,8 +26,11 @@ RUN apt-get install -y \
 RUN sed -i -e 's/name=sesman-Xvnc/name=Docker RDP/g' /etc/xrdp/xrdp.ini
 RUN mkdir -p /root/.vnc
 
+ADD km-0411.ini /etc/xrdp/km-0411.ini
+RUN  ln -s /etc/xrdp/km-0411.ini /etc/xrdp/km-e0010411.ini
+RUN  ln -s /etc/xrdp/km-0411.ini /etc/xrdp/km-e0200411.ini
+
 ADD xstartup /root/.vnc/xstartup
-ADD setvncpasswd.sh /usr/local/bin/setvncpasswd.sh
 ADD docker-entrypoint.sh /entrypoint.sh
 
 VOLUME ["/data"]
