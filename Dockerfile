@@ -23,9 +23,8 @@ RUN apt-get install -y \
       xrdp\
       expect
 
-
-RUN mkdir -p /root/.vnc
 RUN sed -i -e 's/name=sesman-Xvnc/name=Docker RDP/g' /etc/xrdp/xrdp.ini
+RUN mkdir -p /root/.vnc
 
 ADD xstartup /root/.vnc/xstartup
 ADD setvncpasswd.sh /usr/local/bin/setvncpasswd.sh
@@ -40,4 +39,4 @@ WORKDIR /data
 ENTRYPOINT ["/entrypoint.sh"]
 
 # Expose ports.
-EXPOSE 5901 3350 3389
+EXPOSE 3389

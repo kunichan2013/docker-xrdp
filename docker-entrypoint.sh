@@ -7,7 +7,6 @@ if [ -z "$ROOT_PASSWORD" ]; then
 fi
 
 echo -e "${ROOT_PASSWORD}\n${ROOT_PASSWORD}" | passwd
-# USER=root vncserver :1 -geometry 1024x768 -depth 16
 service xrdp start
 bash
 
