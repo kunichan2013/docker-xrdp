@@ -1,12 +1,13 @@
 #!/bin/bash
 
-if [ -z "$VNC_PASSWORD" ]; then
-  echo >&2 'error: VNC_PASSWORD not set'
-  echo >&2 '  Did you forget to add -e VNC_PASSWORD=...?'
+if [ -z "$ROOT_PASSWORD" ]; then
+  echo >&2 'error: ROOT_PASSWORD not set'
+  echo >&2 '  Did you forget to add -e ROOT_PASSWORD=...?'
   exit 1
 fi
 
-/usr/local/bin/setvncpasswd.sh
-USER=root vncserver :1 -geometry 1024x768 -depth 16
+echo -e "${ROOT_PASSWORD}\n${ROOT_PASSWORD}" | passwd
+# USER=root vncserver :1 -geometry 1024x768 -depth 16
+service xrdp start
 bash
 

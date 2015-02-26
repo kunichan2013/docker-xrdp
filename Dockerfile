@@ -10,6 +10,7 @@
 FROM ubuntu:latest
 
 ENV DEBIAN_FRONTEND noninteractive
+# http_proxy http://your proxy server:port/
 # RUN rm -fr /tmp/.X1-lock /tmp/.X11-unix
 
 # Install packages
@@ -19,10 +20,12 @@ RUN apt-get install -y \
       xubuntu-icon-theme\ 
       xfce4-terminal\
       tightvncserver\
+      xrdp\
       expect
 
 
 RUN mkdir -p /root/.vnc
+RUN sed -i -e 's/name=sesman-Xvnc/name=Docker RDP/g' /etc/xrdp/xrdp.ini
 
 ADD xstartup /root/.vnc/xstartup
 ADD setvncpasswd.sh /usr/local/bin/setvncpasswd.sh
@@ -37,4 +40,4 @@ WORKDIR /data
 ENTRYPOINT ["/entrypoint.sh"]
 
 # Expose ports.
-EXPOSE 5901
+EXPOSE 5901 3350 3389
