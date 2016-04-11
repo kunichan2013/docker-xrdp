@@ -7,6 +7,7 @@ if [ -z "$ROOT_PASSWORD" ]; then
 fi
 
 echo -e "${ROOT_PASSWORD}\n${ROOT_PASSWORD}" | passwd
-service xrdp start
+xrdp-sesman
+xrdp
 bash
 
